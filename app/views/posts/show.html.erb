@@ -1,23 +1,50 @@
+<%= stylesheet_link_tag "welcome" %>
 
+<div class = "post-container">
 <h2><%= @post.title %></h2>
 
 <p> <%= @post.body%> </p>
 
-<div>
-  <%= link_to 'Edit', edit_post_path(@post) %>
-  |
-  <%# 
-    Regular HTML links can only make GET requests. "link_to"
-    allows us to use other verbs such as DELETE. We pass a named
-    argument called "method" with the symbol of the HTTP verb as
-    an argument. If you confirm with the dialog then it will 
-    make the request.
-  %>
-  <%= link_to(
-      'Delete', 
-      post_path(@post),
-      method: :delete,
-      data: { confirm: "Are you sure you want to delete this post?"}
-    ) 
-  %>
+  <div>
+    <%= link_to 'Edit', edit_post_path(@post) %>
+    |
+    <%# 
+      Regular HTML links can only make GET requests. "link_to"
+      allows us to use other verbs such as DELETE. We pass a named
+      argument called "method" with the symbol of the HTTP verb as
+      an argument. If you confirm with the dialog then it will 
+      make the request.
+    %>
+    <%= link_to(
+        'Delete', 
+        post_path(@post),
+        method: :delete,
+        data: { confirm: "Are you sure you want to delete this post?"}
+      ) 
+    %>
+  </div>
 </div>
+
+<%# 
+  When two instances are added to model, it will generate a nested 
+  resource route e.g. question_posts_path(@question). If the @answer 
+  is not peristed, request will be a POST, and if it is then it will be a PATCH. 
+%>
+
+<ul class = "outline">
+  <% @comments.each do |comment| %>
+    <li>
+      <p>
+        <%= comment.body %> <br>
+        <small>
+        <%= link_to(
+          'Delete', 
+          comment_path(comment),
+          method: :delete,
+          data: { confirm: "Are you sure?" }
+        ) %>
+      </p>
+    </li>
+  <% end %>
+</ul>
+
