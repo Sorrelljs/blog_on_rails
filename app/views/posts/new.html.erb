@@ -1,14 +1,19 @@
+
+<form>
+  <div class="form-group">
 <%= form_for :post, url: posts_path do |f| %> 
     <%= f.label :title %><br>
-    <%= f.text_field :title %>
+    <%= f.text_field :title, :class => {"form-control" => 'form-control'}%>
   </p>
  
   <p>
     <%= f.label :body %><br>
-    <%= f.text_area :body %>
+    <%= f.text_area :body, :class => {"form-control" => 'form-control'}%>
   </p>
- 
   <p>
-    <%= f.submit %>
+    <%= f.submit  :class => {"btn btn-primary" => 'btn btn-primary'}
+     %>
   </p>
 <% end %>
+</div>
+</form>

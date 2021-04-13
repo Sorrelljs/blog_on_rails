@@ -1,3 +1,23 @@
 // Place all the styles related to the welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.form-group {
+    margin: 10px;
+
+
+
+}
+
+.outline ul {
+    text-decoration: none;
+}
+
+.outline-show-page {
+    padding: 0;
+    li {
+        list-style-type: none;
+        padding: 0;
+
+    }
+}

@@ -1,6 +1,7 @@
 @import "bootstrap";
 
 
+
 .outline {
     border: 1px solid black;
     margin: 5px;
@@ -10,14 +11,25 @@
     margin: 10px;
 }
 
+.index-container {
+
 ul {
     text-decoration: none;
     list-style-type: none;
     padding: 0;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr;
     grid-gap: 10px;
 }
+
+@media only screen and (min-width: 600px){
+    ul { grid-template-columns: 1fr 1fr;}
+}
+@media only screen and (min-width: 992px) {
+    ul { grid-template-columns: 1fr 1fr 1fr;}
+}
+}
+
 
 a {
     text-decoration: none;
